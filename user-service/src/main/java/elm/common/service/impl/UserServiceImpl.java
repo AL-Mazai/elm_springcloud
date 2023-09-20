@@ -2,9 +2,12 @@ package elm.common.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import elm.common.domain.ResponseResult;
+import elm.common.domain.entity.LoginUser;
 import elm.common.domain.entity.User;
+import elm.common.domain.vo.LoginVo;
 import elm.common.service.UserService;
 import elm.common.mapper.UserMapper;
+import elm.common.utils.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -36,7 +39,18 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         if (Objects.isNull(authenticate)) {
             throw new RuntimeException("用户名或密码错误");
         }
-        return null;
+
+        // 获取认证通过后的登录用户信息
+        LoginUser loginUser = (LoginUser) authenticate.getPrincipal();
+        String userId = loginUser.getUser().getUserid().toString();
+
+        // 使用用户的 ID 生成 JWT 令牌
+        String jwt = JwtUtil.createJWT(userId);
+
+        //把token和user封装并返回
+        LoginVo loginVo = new LoginVo(jwt, user);
+
+        return ResponseResult.okResult(loginVo);
     }
 }
 
