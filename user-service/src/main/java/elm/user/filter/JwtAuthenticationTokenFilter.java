@@ -6,9 +6,12 @@ import elm.common.domain.ResponseResult;
 import elm.common.enums.AppHttpCodeEnum;
 import elm.common.utils.JwtUtil;
 import elm.user.domain.entity.LoginUser;
+import elm.user.utils.RedisCache;
 import elm.user.utils.SecurityUtils;
-import elm.user.utils.WebUtils;
+import elm.common.utils.WebUtils;
 import io.jsonwebtoken.Claims;
+import org.bouncycastle.jcajce.provider.symmetric.RC2;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
@@ -25,8 +28,8 @@ import java.util.Objects;
 @Component
 public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
-//    @Autowired
-//    private RedisCache redisCache;
+    @Autowired
+    private RedisCache redisCache;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
@@ -36,6 +39,7 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
             filterChain.doFilter(request, response);
             return;
         }
+
         //解析获取userId
         Claims claims = null;
         try {
@@ -48,9 +52,14 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
             WebUtils.renderString(response, JSON.toJSONString(result));
             return;
         }
+
         String userId = claims.getSubject();
+
         //获取用户信息
-        LoginUser loginUser = SecurityUtils.getLoginUser();
+        LoginUser loginUser = redisCache.getCacheObject("elm-login:" + userId);
+        System.out.println("====================================");
+        System.out.println(loginUser);
+//        LoginUser loginUser = SecurityUtils.getLoginUser();
         //如果获取不到
         if(Objects.isNull(loginUser)){
             //说明登录过期，提示重新登录
@@ -58,6 +67,7 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
             WebUtils.renderString(response, JSON.toJSONString(result));
             return;
         }
+
         //存入SecurityContextHolder
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(loginUser, null, null);
         SecurityContextHolder.getContext().setAuthentication(authenticationToken);
