@@ -1,0 +1,27 @@
+server:
+  port: 10010
+logging:
+  level:
+    elm.geteway: debug
+  pattern:
+    dateformat: MM-dd HH:mm:ss
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          # 是否从注册中心读取服务
+          enabled: true
+      routes:
+        - id: user-service # 路由标示，必须唯一
+          uri: lb://user-service # 路由的目标地址
+          predicates: # 路由断言，判断请求是否符合规则
+            - Path=/user/** # 路径断言，判断路径是否是以/user开头，如果是则符合
+
+eureka:
+  client:
+    service-url:  # eureka的地址信息
+      defaultZone: http://43.138.121.194:10086/eureka
+    eureka-connection-idle-timeout-seconds: 10

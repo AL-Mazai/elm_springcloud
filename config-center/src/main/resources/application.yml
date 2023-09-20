@@ -1,0 +1,17 @@
+server:
+  port: 3344
+spring:
+  application:
+    name: config-center  # 应用名称
+  cloud:
+    config:
+      server:
+        git:
+#          uri: https://github.com/AL-Mazai/springcloud_config.git
+          uri: https://gitee.com/Mazai_zzw/springcloud_config.git #配置文件所在仓库
+
+eureka:
+  client:
+    service-url:  # eureka的地址信息
+      defaultZone: http://43.138.121.194:10086/eureka
+    eureka-server-connect-timeout-seconds: 10
