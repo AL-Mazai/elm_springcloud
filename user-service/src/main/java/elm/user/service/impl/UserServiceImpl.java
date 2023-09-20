@@ -1,13 +1,14 @@
-package elm.common.service.impl;
+package elm.user.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import elm.common.domain.ResponseResult;
-import elm.common.domain.entity.LoginUser;
-import elm.common.domain.entity.User;
-import elm.common.domain.vo.LoginVo;
-import elm.common.service.UserService;
-import elm.common.mapper.UserMapper;
+import elm.user.domain.entity.LoginUser;
+import elm.user.domain.entity.User;
+import elm.user.domain.vo.LoginVo;
+import elm.user.service.UserService;
+import elm.user.mapper.UserMapper;
 import elm.common.utils.JwtUtil;
+import elm.user.utils.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -42,7 +43,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 
         // 获取认证通过后的登录用户信息
         LoginUser loginUser = (LoginUser) authenticate.getPrincipal();
-        String userId = loginUser.getUser().getUserid().toString();
+        String userId = loginUser.getUser().getUserid();
 
         // 使用用户的 ID 生成 JWT 令牌
         String jwt = JwtUtil.createJWT(userId);
@@ -51,6 +52,16 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         LoginVo loginVo = new LoginVo(jwt, user);
 
         return ResponseResult.okResult(loginVo);
+    }
+
+    @Override
+    public ResponseResult getUserInfo() {
+        //获取当前用户id
+        String userId = SecurityUtils.getUserId();
+        //根据用户id查询用户信息
+        User user = getById(userId);
+
+        return ResponseResult.okResult(user);
     }
 }
 

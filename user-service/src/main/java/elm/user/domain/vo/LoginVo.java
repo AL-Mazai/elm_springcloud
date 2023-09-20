@@ -1,6 +1,6 @@
-package elm.common.domain.vo;
+package elm.user.domain.vo;
 
-import elm.common.domain.entity.User;
+import elm.user.domain.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

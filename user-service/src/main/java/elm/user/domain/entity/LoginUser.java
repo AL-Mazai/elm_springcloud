@@ -1,4 +1,4 @@
-package elm.common.domain.entity;
+package elm.user.domain.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,7 +15,6 @@ import java.util.List;
 public class LoginUser implements UserDetails {
 
     private User user;
-    private List<String> permission;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

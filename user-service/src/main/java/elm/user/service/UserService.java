@@ -1,7 +1,7 @@
-package elm.common.service;
+package elm.user.service;
 
 import elm.common.domain.ResponseResult;
-import elm.common.domain.entity.User;
+import elm.user.domain.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -14,7 +14,12 @@ public interface UserService extends IService<User> {
     /**
      * 用户登录
      * @param user
-     * @return
      */
     ResponseResult login(User user);
+
+    /**
+     * 获取当前登录用户的信息
+     */
+    ResponseResult getUserInfo();
+
 }

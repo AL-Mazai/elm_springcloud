@@ -1,6 +1,6 @@
-package elm.common.mapper;
+package elm.user.mapper;
 
-import elm.common.domain.entity.User;
+import elm.user.domain.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
