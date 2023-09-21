@@ -53,14 +53,14 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
             return;
         }
 
-        String userId = claims.getSubject();
-
         //获取用户信息
-        LoginUser loginUser = redisCache.getCacheObject("elm-login:" + userId);
-        System.out.println("====================================");
-        System.out.println(loginUser);
+        String userId = claims.getSubject();
+        LoginUser loginUser = redisCache.getCacheObject("elm-user-login:" + userId);
+//        System.out.println("====================================");
+//        System.out.println(loginUser);
 //        LoginUser loginUser = SecurityUtils.getLoginUser();
-        //如果获取不到
+
+        //获取不到
         if(Objects.isNull(loginUser)){
             //说明登录过期，提示重新登录
             ResponseResult result = ResponseResult.errorResult(AppHttpCodeEnum.NEED_LOGIN);
@@ -71,6 +71,7 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
         //存入SecurityContextHolder
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(loginUser, null, null);
         SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+
         //放行
         filterChain.doFilter(request, response);
     }

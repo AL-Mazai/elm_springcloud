@@ -59,7 +59,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         String jwt = JwtUtil.createJWT(userId);
 
         //将用户信息存入redis
-        redisCache.setCacheObject("elm-login:" + userId, loginUser);
+        redisCache.setCacheObject("elm-user-login:" + userId, loginUser);
 
         //把token和user封装并返回
         UserInfoVo userVo = BeanCopyUtils.copyBean(loginUser.getUser(), UserInfoVo.class);
