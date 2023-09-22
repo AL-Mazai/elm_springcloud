@@ -22,4 +22,10 @@ public interface UserService extends IService<User> {
      */
     ResponseResult getUserInfo();
 
+    /**
+     * 退出登录
+     * @return
+     */
+    ResponseResult logout();
+
 }

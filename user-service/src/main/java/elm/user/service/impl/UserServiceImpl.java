@@ -80,6 +80,17 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 
         return ResponseResult.okResult(userInfoVo);
     }
+
+    @Override
+    public ResponseResult logout() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        LoginUser loginUser = (LoginUser)authentication.getPrincipal();
+        //获取userid
+        String userId = loginUser.getUser().getUserid();
+        //删除redis中的用户信息
+        redisCache.deleteObject("elm-user-login:" + userId);
+        return ResponseResult.okResult();
+    }
 }
 
 
