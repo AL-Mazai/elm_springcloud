@@ -13,8 +13,8 @@ public class UserInfoVo {
     /**
      * 用户编号
      */
-    @TableId
-    private String userid;
+//    @TableId
+    private Integer userid;
 
     /**
      * 用户名称

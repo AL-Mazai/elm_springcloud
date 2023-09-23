@@ -27,7 +27,7 @@ public class SecurityUtils {
      * 获取当前登录用户id
      * @return
      */
-    public static String getUserId() {
+    public static Integer getUserId() {
         return getLoginUser().getUser().getUserid();
     }
 }

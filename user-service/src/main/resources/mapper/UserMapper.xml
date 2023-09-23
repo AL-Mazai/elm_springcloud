@@ -5,7 +5,7 @@
 <mapper namespace="elm.user.mapper.UserMapper">
 
     <resultMap id="BaseResultMap" type="elm.user.domain.entity.User">
-            <id property="userid" column="userId" jdbcType="VARCHAR"/>
+            <id property="userid" column="userId" jdbcType="INTEGER"/>
             <result property="password" column="password" jdbcType="VARCHAR"/>
             <result property="username" column="userName" jdbcType="VARCHAR"/>
             <result property="phone" column="phone" jdbcType="VARCHAR"/>

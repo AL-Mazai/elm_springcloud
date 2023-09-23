@@ -1,7 +1,10 @@
 package elm.user.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import elm.common.domain.ResponseResult;
+import elm.common.enums.AppHttpCodeEnum;
+import elm.common.exception.SystemException;
 import elm.common.utils.BeanCopyUtils;
 import elm.user.utils.RedisCache;
 import elm.user.domain.entity.LoginUser;
@@ -17,6 +20,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Objects;
@@ -35,6 +39,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 
     @Autowired
     private AuthenticationManager authenticationManager;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public ResponseResult login(User user) {
@@ -55,7 +62,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         LoginUser loginUser = (LoginUser) authenticate.getPrincipal();
 
         // 使用用户的 ID 生成 JWT 令牌
-        String userId = loginUser.getUser().getUserid();
+        String userId = loginUser.getUser().getUserid().toString();
         String jwt = JwtUtil.createJWT(userId);
 
         //将用户信息存入redis
@@ -71,7 +78,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
     @Override
     public ResponseResult getUserInfo() {
         //获取当前用户id
-        String userId = SecurityUtils.getUserId();
+        Integer userId = SecurityUtils.getUserId();
         //根据用户id查询用户信息
         User user = getById(userId);
 
@@ -86,10 +93,42 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         LoginUser loginUser = (LoginUser)authentication.getPrincipal();
         //获取userid
-        String userId = loginUser.getUser().getUserid();
+        String userId = loginUser.getUser().getUserid().toString();
         //删除redis中的用户信息
         redisCache.deleteObject("elm-user-login:" + userId);
         return ResponseResult.okResult();
+    }
+
+    @Override
+    public ResponseResult register(User user) {
+        //对数据进行是否存在的判断
+        if (userNameExist(user.getUsername())) {
+//            throw new SystemException(AppHttpCodeEnum.USERNAME_EXIST);
+            return ResponseResult.errorResult(AppHttpCodeEnum.USERNAME_EXIST);
+        }
+        if (phoneExit(user.getPhone())) {
+            return ResponseResult.errorResult(AppHttpCodeEnum.PHONE_EXIST);
+//            throw new SystemException(AppHttpCodeEnum.PHONE_EXIST);
+        }
+
+        //对密码进行加密
+        String passwordEncode = passwordEncoder.encode(user.getPassword());
+        user.setPassword(passwordEncode);
+
+        //存入数据库
+        save(user);
+        return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);
+    }
+    private boolean phoneExit(String phone) {
+        LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper();
+        queryWrapper.eq(User::getPhone, phone);
+        return count(queryWrapper) > 0;
+    }
+
+    private boolean userNameExist(String userName) {
+        LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper();
+        queryWrapper.eq(User::getUsername, userName);
+        return count(queryWrapper) > 0;
     }
 }
 

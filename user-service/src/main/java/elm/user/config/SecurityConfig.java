@@ -43,13 +43,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                // 对于登录接口 允许匿名访问
-//                .antMatchers("/login").anonymous()
-                //注销接口需要认证才能访问
-                .antMatchers("/logout").authenticated()
-                .antMatchers("/user/getUserInfo").authenticated()
+                // 对于注册登录接口 允许匿名访问
+                .antMatchers("/user/login").anonymous()
+                .antMatchers("/user/register").anonymous()
                 // 除上面外的所有请求全部不需要认证即可访问
-                .anyRequest().permitAll();
+                .anyRequest().authenticated();
 
         //关闭默认的注销功能
         http.logout().disable();

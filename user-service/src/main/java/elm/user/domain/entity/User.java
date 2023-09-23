@@ -22,7 +22,7 @@ public class User implements Serializable {
      * 用户编号
      */
     @TableId
-    private String userid;
+    private Integer userid;
 
     /**
      * 密码
