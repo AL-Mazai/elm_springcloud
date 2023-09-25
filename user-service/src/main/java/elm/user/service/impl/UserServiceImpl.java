@@ -119,6 +119,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         save(user);
         return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);
     }
+
+    @Override
+    public ResponseResult eidtUserInfo(User user) {
+        updateById(user);
+        return ResponseResult.okResult();
+    }
+
     private boolean phoneExit(String phone) {
         LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper();
         queryWrapper.eq(User::getPhone, phone);

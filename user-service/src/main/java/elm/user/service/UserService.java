@@ -28,5 +28,17 @@ public interface UserService extends IService<User> {
      */
     ResponseResult logout();
 
+    /**
+     * 用户注册
+     * @param user
+     * @return
+     */
     ResponseResult register(User user);
+
+    /**
+     * 修改用户信息
+     * @param user
+     * @return
+     */
+    ResponseResult eidtUserInfo(User user);
 }
