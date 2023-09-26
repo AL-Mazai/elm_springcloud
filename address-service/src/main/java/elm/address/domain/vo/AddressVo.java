@@ -1,19 +1,16 @@
-package elm.address.domain.entity;
+package elm.address.domain.vo;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
-import java.io.Serializable;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-/**
- * 
- * @TableName delivery_address
- */
-@TableName(value ="delivery_address")
 @Data
-public class DeliveryAddress implements Serializable {
+@NoArgsConstructor
+@AllArgsConstructor
+public class AddressVo {
     /**
      * 送货地址编号
      */
@@ -39,13 +36,5 @@ public class DeliveryAddress implements Serializable {
      * 送货地址
      */
     private String address;
-
-    /**
-     * 所属用户编号
-     */
-    private Integer userid;
-
-    @TableField(exist = false)
-    private static final long serialVersionUID = 1L;
 
 }

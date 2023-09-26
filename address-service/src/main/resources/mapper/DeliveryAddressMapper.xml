@@ -10,11 +10,6 @@
             <result property="contactsex" column="contactSex" jdbcType="INTEGER"/>
             <result property="contacttel" column="contactTel" jdbcType="VARCHAR"/>
             <result property="address" column="address" jdbcType="VARCHAR"/>
-            <result property="userid" column="userId" jdbcType="VARCHAR"/>
+            <result property="userid" column="userId" jdbcType="INTEGER"/>
     </resultMap>
-
-    <sql id="Base_Column_List">
-        daId,contactName,contactSex,
-        contactTel,address,userId
-    </sql>
 </mapper>

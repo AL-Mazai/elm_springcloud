@@ -12,6 +12,12 @@
     <artifactId>address-service</artifactId>
 
     <dependencies>
+        <!--公共模块-->
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>elm-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
         <!--mysql-->
         <dependency>
             <groupId>mysql</groupId>

@@ -4,6 +4,7 @@ package elm.address.controller;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import elm.address.domain.entity.DeliveryAddress;
 import elm.address.service.DeliveryAddressService;
+import elm.common.domain.ResponseResult;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.tomcat.jni.Address;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,21 +20,20 @@ public class AddressController {
     @Autowired
     private DeliveryAddressService addressService;
 
-    @GetMapping("{id}")
-    public DeliveryAddress queryById(@PathVariable("id") Long id){
-        LambdaQueryWrapper<DeliveryAddress> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.eq(DeliveryAddress::getDaid, id);
-        return addressService.getOne(queryWrapper);
-    }
-
     @GetMapping("/getAllAddress")
-    public List<DeliveryAddress> getAllAddress(@RequestParam("userId") String userId){
-        LambdaQueryWrapper<DeliveryAddress> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.eq(DeliveryAddress::getUserid, userId);
-        List<DeliveryAddress> deliveryAddressList = addressService.list(queryWrapper);
-
-        return deliveryAddressList;
+    public ResponseResult getAllAddress(@RequestParam("userId") Integer userId){
+        return addressService.getAddressOfUser(userId);
     }
 
+    @PostMapping("/addAddress")
+    public ResponseResult addAddress(@RequestBody DeliveryAddress address){
+        addressService.save(address);
+        return ResponseResult.okResult();
+    }
 
+    @DeleteMapping("/deleteAddress")
+    public ResponseResult deleteAddress(@RequestParam("addressId") Integer addressId){
+        addressService.removeById(addressId);
+        return ResponseResult.okResult();
+    }
 }

@@ -2,6 +2,7 @@ package elm.address.service;
 
 import elm.address.domain.entity.DeliveryAddress;
 import com.baomidou.mybatisplus.extension.service.IService;
+import elm.common.domain.ResponseResult;
 
 /**
 * @author 1
@@ -10,4 +11,10 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface DeliveryAddressService extends IService<DeliveryAddress> {
 
+    /**
+     * 获取当前登录用户的地址列表
+     * @param userId
+     * @return
+     */
+    ResponseResult getAddressOfUser(Integer userId);
 }
