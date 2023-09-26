@@ -49,13 +49,12 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.70</version>
         </dependency>
-        <!--七牛云OSS依赖-->
+        <!--七牛云依赖-->
         <dependency>
             <groupId>com.qiniu</groupId>
             <artifactId>qiniu-java-sdk</artifactId>
             <version>[7.7.0, 7.7.99]</version>
         </dependency>
-        <!--javax-->
         <dependency>
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>
