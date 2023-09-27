@@ -7,7 +7,7 @@ import elm.common.domain.ResponseResult;
 import elm.common.enums.AppHttpCodeEnum;
 import elm.common.exception.SystemException;
 import elm.common.utils.BeanCopyUtils;
-import elm.user.utils.RedisCache;
+import elm.user.utils.RedisUtils;
 import elm.user.domain.entity.LoginUser;
 import elm.user.domain.entity.User;
 import elm.user.domain.vo.LoginVo;
@@ -36,7 +36,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
     implements UserService{
 
     @Autowired
-    private RedisCache redisCache;
+    private RedisUtils redisUtils;
 
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -67,7 +67,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         String jwt = JwtUtil.createJWT(userId);
 
         //将用户信息存入redis
-        redisCache.setCacheObject(RedisConstants.REDIS_LOGIN_KEY + userId, loginUser);
+        redisUtils.setCacheObject(RedisConstants.REDIS_LOGIN_KEY + userId, loginUser);
 
         //把token和user封装并返回
         UserInfoVo userVo = BeanCopyUtils.copyBean(loginUser.getUser(), UserInfoVo.class);
@@ -96,7 +96,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         //获取userid
         String userId = loginUser.getUser().getUserid().toString();
         //删除redis中的用户信息
-        redisCache.deleteObject(RedisConstants.REDIS_LOGIN_KEY + userId);
+        redisUtils.deleteObject(RedisConstants.REDIS_LOGIN_KEY + userId);
         return ResponseResult.okResult();
     }
 

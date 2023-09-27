@@ -1,16 +1,11 @@
 package elm.user.controller;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import elm.common.domain.ResponseResult;
-import elm.user.domain.entity.LoginUser;
 import elm.user.domain.entity.User;
 import elm.user.service.OSSUploadService;
 import elm.user.service.UserService;
-import elm.user.utils.RedisCache;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.core.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 

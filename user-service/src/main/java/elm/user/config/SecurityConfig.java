@@ -20,7 +20,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private JwtAuthenticationTokenFilter jwtAuthenticationTokenFilter;
-
     @Autowired
     private AuthenticationEntryPoint authenticationEntryPoint;
     @Autowired
@@ -63,8 +62,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         //把jwtAuthenticationTokenFilter添加到SpringSecurity的过滤器链中
         http.addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
-
-        //允许跨域
-        http.cors();
     }
 }

@@ -6,11 +6,9 @@ import elm.common.domain.ResponseResult;
 import elm.common.enums.AppHttpCodeEnum;
 import elm.common.utils.JwtUtil;
 import elm.user.domain.entity.LoginUser;
-import elm.user.utils.RedisCache;
-import elm.user.utils.SecurityUtils;
+import elm.user.utils.RedisUtils;
 import elm.common.utils.WebUtils;
 import io.jsonwebtoken.Claims;
-import org.bouncycastle.jcajce.provider.symmetric.RC2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -29,7 +27,7 @@ import java.util.Objects;
 public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
     @Autowired
-    private RedisCache redisCache;
+    private RedisUtils redisUtils;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
@@ -55,7 +53,7 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
         //获取用户信息
         String userId = claims.getSubject();
-        LoginUser loginUser = redisCache.getCacheObject("elm-user-login:" + userId);
+        LoginUser loginUser = redisUtils.getCacheObject("elm-user-login:" + userId);
 //        System.out.println("====================================");
 //        System.out.println(loginUser);
 //        LoginUser loginUser = SecurityUtils.getLoginUser();
