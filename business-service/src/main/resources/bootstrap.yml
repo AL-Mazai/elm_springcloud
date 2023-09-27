@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: business-service
+  cloud:
+    config:
+      name: business-dev, database #对应git上的配置文件名
+      label: master #git分支
+#      uri: http://localhost:3344 //不使用uri来获取配置中心服务
+      discovery:
+        enabled: true
+        service-id: config-center #从eureka获取配置中心服务
+eureka:
+  client:
+    service-url:  # eureka的地址信息
+#      defaultZone: http://43.138.121.194:10086/eureka
+      defaultZone: http://localhost:10086/eureka
+    eureka-server-connect-timeout-seconds: 10
+

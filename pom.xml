@@ -25,6 +25,7 @@
         <module>geteway</module>
         <module>config-center</module>
         <module>elm-common</module>
+        <module>business-service</module>
     </modules>
 
     <properties>
