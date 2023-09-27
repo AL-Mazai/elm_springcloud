@@ -2,6 +2,7 @@ package elm.user.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import elm.common.constants.RedisConstants;
 import elm.common.domain.ResponseResult;
 import elm.common.enums.AppHttpCodeEnum;
 import elm.common.exception.SystemException;
@@ -66,7 +67,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         String jwt = JwtUtil.createJWT(userId);
 
         //将用户信息存入redis
-        redisCache.setCacheObject("elm-user-login:" + userId, loginUser);
+        redisCache.setCacheObject(RedisConstants.REDIS_LOGIN_KEY + userId, loginUser);
 
         //把token和user封装并返回
         UserInfoVo userVo = BeanCopyUtils.copyBean(loginUser.getUser(), UserInfoVo.class);
@@ -95,7 +96,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         //获取userid
         String userId = loginUser.getUser().getUserid().toString();
         //删除redis中的用户信息
-        redisCache.deleteObject("elm-user-login:" + userId);
+        redisCache.deleteObject(RedisConstants.REDIS_LOGIN_KEY + userId);
         return ResponseResult.okResult();
     }
 
@@ -103,12 +104,12 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
     public ResponseResult register(User user) {
         //对数据进行是否存在的判断
         if (userNameExist(user.getUsername())) {
-//            throw new SystemException(AppHttpCodeEnum.USERNAME_EXIST);
-            return ResponseResult.errorResult(AppHttpCodeEnum.USERNAME_EXIST);
+            throw new SystemException(AppHttpCodeEnum.USERNAME_EXIST);
+//            return ResponseResult.errorResult(AppHttpCodeEnum.USERNAME_EXIST);
         }
         if (phoneExit(user.getPhone())) {
-            return ResponseResult.errorResult(AppHttpCodeEnum.PHONE_EXIST);
-//            throw new SystemException(AppHttpCodeEnum.PHONE_EXIST);
+            throw new SystemException(AppHttpCodeEnum.PHONE_EXIST);
+//            return ResponseResult.errorResult(AppHttpCodeEnum.PHONE_EXIST);
         }
 
         //对密码进行加密
