@@ -9,7 +9,7 @@ import elm.business.domain.entity.BusinessType;
  * @author makejava
  * @since 2023-09-27 15:55:57
  */
-public interface BusinessTypeDao extends BaseMapper<BusinessType> {
+public interface BusinessTypeMapper extends BaseMapper<BusinessType> {
 
 }
 
