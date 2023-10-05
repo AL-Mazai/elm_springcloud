@@ -13,4 +13,6 @@ public class SystemConstants {
      * 请求头token-key
      */
     public static final String TOKEN_KEY = "token";
+    public static final String BUSINESS_SORT_BY_ORDER_NUM = "1";
+    public static final String BUSINESS_SORT_BY_STARS = "2";
 }
