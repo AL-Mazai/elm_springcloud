@@ -10,6 +10,7 @@ import org.apache.tomcat.jni.Address;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 @Slf4j
@@ -17,7 +18,7 @@ import java.util.List;
 @RequestMapping("/address")
 public class AddressController {
 
-    @Autowired
+    @Resource
     private DeliveryAddressService addressService;
 
     @GetMapping("/getAllAddress")
@@ -34,6 +35,12 @@ public class AddressController {
     @DeleteMapping("/deleteAddress")
     public ResponseResult deleteAddress(@RequestParam("addressId") Integer addressId){
         addressService.removeById(addressId);
+        return ResponseResult.okResult();
+    }
+
+    @PutMapping("/updateAddress")
+    public ResponseResult updateAddress(@RequestBody DeliveryAddress address){
+        addressService.updateById(address);
         return ResponseResult.okResult();
     }
 }
