@@ -38,6 +38,11 @@ spring:
           uri: lb://business-service
           predicates:
             - Path=/businessType/**, /business/**
+        #食品服务
+        - id: food-service
+          uri: lb://food-service
+          predicates:
+            - Path=/food/**
 
 eureka:
   client:

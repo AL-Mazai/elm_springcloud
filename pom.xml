@@ -26,6 +26,7 @@
         <module>config-center</module>
         <module>elm-common</module>
         <module>business-service</module>
+        <module>food-service</module>
     </modules>
 
     <properties>
