@@ -47,5 +47,9 @@ public class Food implements Serializable {
      * 备注
      */
     private String remarks;
+    /**
+     * 下单的食品数量
+     */
+    private Integer orderFoodNum;
 }
 
