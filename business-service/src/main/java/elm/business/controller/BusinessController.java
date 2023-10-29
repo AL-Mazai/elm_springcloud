@@ -25,6 +25,12 @@ public class BusinessController {
         return ResponseResult.okResult(businessList);
     }
 
+    @GetMapping("getAllBusinessOfType")
+    public ResponseResult getAllBusinessOfType(@RequestParam("typeId") Integer typeId){
+        List<Business> businessList = businessService.listById(typeId);
+        return ResponseResult.okResult(businessList);
+    }
+
     @GetMapping("/getBusinessInfo")
     public ResponseResult getBusinessInfo(@RequestParam("businessId") Integer businessId){
         Business business = businessService.getById(businessId);

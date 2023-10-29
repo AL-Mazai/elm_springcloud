@@ -26,4 +26,13 @@ public class BusinessServiceImpl extends ServiceImpl<BusinessMapper, Business> i
 
         return list(queryWrapper);
     }
+
+    @Override
+    public List<Business> listById(Integer typeId) {
+        LambdaQueryWrapper<Business> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(Business::getBusinessTypeId, typeId);
+
+        List<Business> businessList = list(queryWrapper);
+        return businessList;
+    }
 }

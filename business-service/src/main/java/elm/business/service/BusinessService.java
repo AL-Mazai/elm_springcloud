@@ -19,4 +19,11 @@ public interface BusinessService extends IService<Business> {
      * @return
      */
     List<Business> getAllBusiness(String sortWay);
+
+    /**
+     * 根据商家类型获取商家列表
+     * @param typeId
+     * @return
+     */
+    List<Business> listById(Integer typeId);
 }
