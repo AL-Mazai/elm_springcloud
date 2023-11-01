@@ -31,5 +31,11 @@ public class FoodController {
         List<Food> foodList = foodService.getFoodListByBusinessID(businessId);
         return ResponseResult.okResult(foodList);
     }
+
+    @GetMapping("/getFoodInfo")
+    public ResponseResult getFoodInfo(@RequestParam("foodId") Integer foodId ){
+        Food food = foodService.getById(foodId);
+        return ResponseResult.okResult(food);
+    }
 }
 
