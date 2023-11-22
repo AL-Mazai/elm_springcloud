@@ -14,6 +14,5 @@ import java.util.List;
  */
 public interface OrderDetailMapper extends BaseMapper<OrderDetail> {
 
-//    List<OrderDetail> listOrderDetail();
 }
 

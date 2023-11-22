@@ -21,8 +21,6 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
 
     @Resource
     private OrdersMapper ordersMapper;
-    @Resource
-    private OrderDetailMapper orderDetailMapper;
 
     @Override
     public List<Orders> getAllOrder() {
