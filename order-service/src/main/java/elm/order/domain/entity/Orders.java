@@ -1,5 +1,6 @@
 package elm.order.domain.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,6 +9,7 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 /**
  * 
@@ -56,4 +58,6 @@ public class Orders implements Serializable {
     private static final long serialVersionUID = 1L;
 
 
+    @TableField(exist = false)
+    private List<OrderDetail> orderDetailList;
 }

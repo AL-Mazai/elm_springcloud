@@ -1,64 +1,47 @@
 package elm.order.domain.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 
 /**
  * (OrderDetail)实体类
  *
  * @author makejava
- * @since 2023-11-22 14:34:45
+ * @since 2023-11-22 15:29:03
  */
+@TableName(value = "order_detail")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class OrderDetail implements Serializable {
-    private static final long serialVersionUID = 917812494623007268L;
-/**
+    private static final long serialVersionUID = -95340378894037901L;
+    /**
      * 订单明细编号
      */
     private Integer odid;
-/**
+    /**
+     * 食物名称
+     */
+    private String foodName;
+    /**
      * 所属订单编号
      */
     private Integer orderid;
-/**
+    /**
      * 食品编号
      */
     private Integer foodid;
-/**
-     * 数量
+    /**
+     * 食物数量
      */
     private Integer quantity;
-
-
-    public Integer getOdid() {
-        return odid;
-    }
-
-    public void setOdid(Integer odid) {
-        this.odid = odid;
-    }
-
-    public Integer getOrderid() {
-        return orderid;
-    }
-
-    public void setOrderid(Integer orderid) {
-        this.orderid = orderid;
-    }
-
-    public Integer getFoodid() {
-        return foodid;
-    }
-
-    public void setFoodid(Integer foodid) {
-        this.foodid = foodid;
-    }
-
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
-
+    /**
+     * 食物logo
+     */
+    private String foodImg;
 }
 
