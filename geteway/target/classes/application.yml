@@ -1,0 +1,57 @@
+server:
+  port: 10010
+logging:
+  level:
+    elm.geteway: debug
+  pattern:
+    dateformat: MM-dd HH:mm:ss
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedHeaders: "*"
+            allowedMethods: "*"
+      default-filters:
+        - DedupeResponseHeader=Vary Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_FIRST
+      discovery:
+        locator:
+          # 是否从注册中心读取服务
+          enabled: true
+      routes:
+        #用户服务
+        - id: user-service # 路由标示，必须唯一
+          uri: lb://user-service # 路由的目标地址
+          predicates: # 路由断言，判断请求是否符合规则
+            - Path=/user/** # 路径断言，判断路径是否是以/user开头，如果是则符合
+        #地址服务
+        - id: address-service
+          uri: lb://address-service
+          predicates:
+            - Path=/address/**
+        #商家服务
+        - id: business-service
+          uri: lb://business-service
+          predicates:
+            - Path=/businessType/**, /business/**
+        #食品服务
+        - id: food-service
+          uri: lb://food-service
+          predicates:
+            - Path=/food/**
+        #订单服务
+        - id: order-service
+          uri: lb://order-service
+          predicates:
+            - Path=/orders/**
+
+eureka:
+  client:
+    service-url: # eureka的地址信息
+      #      defaultZone: http://43.138.121.194:10086/eureka
+      defaultZone: http://localhost:10086/eureka
+    eureka-connection-idle-timeout-seconds: 10
