@@ -1,0 +1,18 @@
+package elm.order.mapper;
+
+import elm.order.domain.entity.Orders;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+/**
+* @author 1
+* @description 针对表【orders】的数据库操作Mapper
+* @createDate 2023-11-22 14:15:41
+* @Entity generator.domain.entity.Orders
+*/
+public interface OrdersMapper extends BaseMapper<Orders> {
+
+}
+
+
+
+
