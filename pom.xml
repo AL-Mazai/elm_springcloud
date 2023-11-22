@@ -27,6 +27,7 @@
         <module>elm-common</module>
         <module>business-service</module>
         <module>food-service</module>
+        <module>order-service</module>
     </modules>
 
     <properties>
