@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="elm.order.mapper.OrdersMapper">
+
+    <resultMap id="OrdersMap" type="elm.order.domain.entity.Orders">
+        <id property="orderid" column="orderId" jdbcType="INTEGER"/>
+        <result property="userid" column="userId" jdbcType="INTEGER"/>
+        <result property="businessid" column="businessId" jdbcType="INTEGER"/>
+        <result property="orderdate" column="orderDate" jdbcType="TIMESTAMP"/>
+        <result property="ordertotal" column="orderTotal" jdbcType="NUMERIC"/>
+        <result property="daid" column="daId" jdbcType="INTEGER"/>
+        <result property="orderstate" column="orderState" jdbcType="INTEGER"/>
+        <!--配置Orders对象中orderDetailList集合的映射-->
+        <collection property="orderDetailList" ofType="elm.order.domain.entity.OrderDetail">
+            <id  property="odid" column="odId" jdbcType="INTEGER"/>
+            <result column="orderId" property="orderid" jdbcType="INTEGER"/>
+            <result column="foodId" property="foodid" jdbcType="INTEGER"/>
+            <result column="quantity" property="quantity" jdbcType="INTEGER"/>
+            <result column="food_img" property="foodImg" jdbcType="VARCHAR"/>
+            <result column="food_name" property="foodName" jdbcType="VARCHAR"/>
+        </collection>
+    </resultMap>
+
+    <select id="selectAllOrderWithDetails" resultMap="OrdersMap">
+        select *
+        from orders o
+                 left outer join order_detail od on o.orderId = od.orderId
+    </select>
+</mapper>
+

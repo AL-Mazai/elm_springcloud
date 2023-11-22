@@ -3,6 +3,8 @@ package elm.order.service;
 import elm.order.domain.entity.Orders;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+
 /**
 * @author 1
 * @description 针对表【orders】的数据库操作Service
@@ -10,4 +12,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface OrdersService extends IService<Orders> {
 
+    List<Orders> getAllOrder();
 }

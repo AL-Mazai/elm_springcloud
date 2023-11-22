@@ -14,7 +14,6 @@ import java.util.List;
 */
 public interface OrdersMapper extends BaseMapper<Orders> {
 
-    @Select("SELECT o.*, od.* FROM orders o LEFT JOIN order_detail od ON o.orderId = od.orderId")
     List<Orders> selectAllOrderWithDetails();
 }
 

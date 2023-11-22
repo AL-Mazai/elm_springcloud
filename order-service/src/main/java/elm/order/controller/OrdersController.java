@@ -26,7 +26,7 @@ public class OrdersController {
 
     @GetMapping("/getAllOrders")
     public ResponseResult getAllOrders(){
-        List<Orders> ordersList = ordersService.list();
+        List<Orders> ordersList = ordersService.getAllOrder();
         return ResponseResult.okResult(ordersList);
     }
 

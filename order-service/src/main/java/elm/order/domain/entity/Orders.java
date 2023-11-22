@@ -57,7 +57,7 @@ public class Orders implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-
+    //订单与订单详情的一对多关系映射
     @TableField(exist = false)
     private List<OrderDetail> orderDetailList;
 }
