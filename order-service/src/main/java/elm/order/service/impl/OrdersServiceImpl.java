@@ -1,7 +1,9 @@
 package elm.order.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import elm.order.domain.entity.OrderDetail;
 import elm.order.domain.entity.Orders;
+import elm.order.mapper.OrderDetailMapper;
 import elm.order.service.OrdersService;
 import elm.order.mapper.OrdersMapper;
 import org.springframework.stereotype.Service;
@@ -19,10 +21,31 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
 
     @Resource
     private OrdersMapper ordersMapper;
+    @Resource
+    private OrderDetailMapper orderDetailMapper;
 
     @Override
     public List<Orders> getAllOrder() {
-        return ordersMapper.selectAllOrderWithDetails();
+        List<Orders> ordersList = ordersMapper.selectAllOrderWithDetails();
+        //通过订单详情id来判断订单中的订单详情列表是否为空
+        for (Orders order : ordersList) {
+//            // 查询并设置businessName
+//            String businessName = ordersMapper.selectById(order.getOrderid()).getBusinessName();
+//            order.setBusinessName(businessName);
+//
+//            // 查询并设置orderDetailList中每个OrderDetail的foodName和foodPrice
+//            for (OrderDetail orderDetail : order.getOrderDetailList()) {
+//                String foodName = orderDetailMapper.selectById(orderDetail.getOdid()).getFoodName();
+//                Double foodPrice = orderDetailMapper.selectById(orderDetail.getOdid()).getFoodPrice();
+//                orderDetail.setFoodName(foodName);
+//                orderDetail.setFoodPrice(foodPrice);
+//            }
+
+            if (order.getOrderDetailList().stream().anyMatch(detail -> detail.getOdid() == null)) {
+                order.setOrderDetailList(null);
+            }
+        }
+        return ordersList;
     }
 }
 

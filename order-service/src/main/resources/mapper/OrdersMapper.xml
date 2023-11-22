@@ -6,16 +6,19 @@
         <id property="orderid" column="orderId" jdbcType="INTEGER"/>
         <result property="userid" column="userId" jdbcType="INTEGER"/>
         <result property="businessid" column="businessId" jdbcType="INTEGER"/>
+        <result column="business_name" property="businessName" jdbcType="VARCHAR"/>
         <result property="orderdate" column="orderDate" jdbcType="TIMESTAMP"/>
         <result property="ordertotal" column="orderTotal" jdbcType="NUMERIC"/>
         <result property="daid" column="daId" jdbcType="INTEGER"/>
         <result property="orderstate" column="orderState" jdbcType="INTEGER"/>
+        <result property="deliveryPrice" column="delivery_price" jdbcType="DOUBLE"/>
         <!--配置Orders对象中orderDetailList集合的映射-->
         <collection property="orderDetailList" ofType="elm.order.domain.entity.OrderDetail">
             <id  property="odid" column="odId" jdbcType="INTEGER"/>
             <result column="orderId" property="orderid" jdbcType="INTEGER"/>
             <result column="foodId" property="foodid" jdbcType="INTEGER"/>
             <result column="quantity" property="quantity" jdbcType="INTEGER"/>
+            <result column="food_price" property="foodPrice" jdbcType="DOUBLE"/>
             <result column="food_img" property="foodImg" jdbcType="VARCHAR"/>
             <result column="food_name" property="foodName" jdbcType="VARCHAR"/>
         </collection>

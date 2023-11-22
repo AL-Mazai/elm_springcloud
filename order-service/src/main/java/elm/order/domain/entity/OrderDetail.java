@@ -43,5 +43,9 @@ public class OrderDetail implements Serializable {
      * 食物logo
      */
     private String foodImg;
+    /**
+     * 食物价格
+     */
+    private Double foodPrice;
 }
 

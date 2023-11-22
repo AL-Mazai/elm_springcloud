@@ -54,6 +54,14 @@ public class Orders implements Serializable {
      * 订单状态（0：未支付； 1：已支付）
      */
     private Integer orderstate;
+    /**
+     * 商家名称
+     */
+    private String businessName;
+    /**
+     * 配送费
+     */
+    private Double deliveryPrice;
 
     private static final long serialVersionUID = 1L;
 
