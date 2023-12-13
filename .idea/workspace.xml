@@ -5,8 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe982ffc-7a3f-4889-bceb-cf081ee6df16" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/elm/order/domain/entity/OrderDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/elm/order/domain/entity/OrderDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/target/classes/elm/order/domain/entity/Orders.class" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/target/classes/elm/order/domain/entity/Orders.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/address-service/target/classes/elm/address/service/impl/DeliveryAddressServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/address-service/target/classes/elm/address/service/impl/DeliveryAddressServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-service/target/classes/elm/business/service/impl/BusinessServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/business-service/target/classes/elm/business/service/impl/BusinessServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elm-common/target/classes/elm/common/utils/BeanCopyUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/elm-common/target/classes/elm/common/utils/BeanCopyUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/food-service/target/classes/elm/food/service/impl/FoodServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/food-service/target/classes/elm/food/service/impl/FoodServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/target/classes/elm/order/service/impl/OrdersServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/target/classes/elm/order/service/impl/OrdersServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/target/classes/elm/user/service/impl/UserDetailServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/target/classes/elm/user/service/impl/UserDetailServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/target/classes/elm/user/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/target/classes/elm/user/service/impl/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/target/test-classes/testBCryptPasswordEncoder.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,31 +29,49 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="localRepository" value="D:\Maven\apache-maven-3.6.3\mvn_localRep" />
-        <option name="userSettingsFile" value="D:\Maven\apache-maven-3.6.3\conf\settings.xml" />
+        <option name="mavenHome" value="D:\a_zzw\maven-3.9.6\apache-maven-3.9.6" />
+        <option name="useMavenConfig" value="false" />
+        <option name="userSettingsFile" value="C:\Users\2022\.m2\settings.xml" />
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2YWOTdrHSpDsGgYfglf27cFo4as" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Maven.elm_springcloud [clean].executor": "Run",
+    "Maven.elm_springcloud [install].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.AddressApplication.executor": "Run",
+    "Spring Boot.BusinessApplication.executor": "Run",
+    "Spring Boot.ConfigApplication.executor": "Run",
+    "Spring Boot.EurekaApplication.executor": "Run",
+    "Spring Boot.FoodApplication.executor": "Run",
+    "Spring Boot.GatewayApplication.executor": "Run",
+    "Spring Boot.OrderApplication.executor": "Run",
+    "Spring Boot.UserApplication.executor": "Run",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
     "last_opened_file_path": "E:/Code/GitHub/elm_springcloud",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "nodejs_package_manager_path": "npm",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "MavenSettings",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -58,12 +83,16 @@
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
         <option value="SpringBootApplicationConfigurationType" />
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.AddressApplication">
+  <component name="RunManager" selected="Spring Boot.UserApplication">
     <configuration name="AddressApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="D:\a_zzw\jdk\jdk-17.0.9" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <module name="address-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="elm.address.AddressApplication" />
       <method v="2">
@@ -71,6 +100,8 @@
       </method>
     </configuration>
     <configuration name="BusinessApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="D:\a_zzw\jdk\jdk-17.0.9" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <module name="business-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="elm.business.BusinessApplication" />
       <method v="2">
@@ -78,6 +109,8 @@
       </method>
     </configuration>
     <configuration name="ConfigApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="D:\a_zzw\jdk\jdk-17.0.9" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <module name="config-center" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="elm.config.ConfigApplication" />
       <method v="2">
@@ -85,6 +118,8 @@
       </method>
     </configuration>
     <configuration name="EurekaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="D:\a_zzw\jdk\jdk-17.0.9" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <module name="eureka-server" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="elm.eureka.EurekaApplication" />
       <method v="2">
@@ -92,6 +127,8 @@
       </method>
     </configuration>
     <configuration name="FoodApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="D:\a_zzw\jdk\jdk-17.0.9" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <module name="food-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="elm.food.FoodApplication" />
       <method v="2">
@@ -99,6 +136,8 @@
       </method>
     </configuration>
     <configuration name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="D:\a_zzw\jdk\jdk-17.0.9" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <module name="geteway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="elm.geteway.GatewayApplication" />
       <method v="2">
@@ -106,6 +145,8 @@
       </method>
     </configuration>
     <configuration name="OrderApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="D:\a_zzw\jdk\jdk-17.0.9" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <module name="order-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="elm.order.OrderApplication" />
       <method v="2">
@@ -113,12 +154,31 @@
       </method>
     </configuration>
     <configuration name="UserApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="D:\a_zzw\jdk\jdk-17.0.9" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <module name="user-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="elm.user.UserApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Spring Boot.AddressApplication" />
+      <item itemvalue="Spring Boot.BusinessApplication" />
+      <item itemvalue="Spring Boot.ConfigApplication" />
+      <item itemvalue="Spring Boot.EurekaApplication" />
+      <item itemvalue="Spring Boot.FoodApplication" />
+      <item itemvalue="Spring Boot.GatewayApplication" />
+      <item itemvalue="Spring Boot.OrderApplication" />
+      <item itemvalue="Spring Boot.UserApplication" />
+    </list>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.1-openjdk-21.0.1-3183f394aec4-7d648f2c" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -129,6 +189,8 @@
       <option name="presentableId" value="Default" />
       <updated>1700637879950</updated>
       <workItem from="1700637881144" duration="362000" />
+      <workItem from="1702435899234" duration="596000" />
+      <workItem from="1702437525810" duration="2399000" />
     </task>
     <servers />
   </component>
