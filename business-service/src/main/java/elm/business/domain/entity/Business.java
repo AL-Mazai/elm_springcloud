@@ -1,12 +1,15 @@
 package elm.business.domain.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
+import elm.food.domain.entity.Food;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * @TableName business
@@ -70,6 +73,9 @@ public class Business implements Serializable {
      * 商家评价（以打星的方式呈现）
      */
     private Double stars;
+
+    @TableField(exist = false)
+    private List<Food> foodList;
 
     private static final long serialVersionUID = 1L;
 }
