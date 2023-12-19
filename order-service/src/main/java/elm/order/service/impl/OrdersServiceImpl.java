@@ -23,8 +23,8 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
     private OrdersMapper ordersMapper;
 
     @Override
-    public List<Orders> getAllOrder() {
-        List<Orders> ordersList = ordersMapper.selectAllOrderWithDetails();
+    public List<Orders> getAllOrder(Integer userId) {
+        List<Orders> ordersList = ordersMapper.selectAllOrderWithDetails(userId);
         //通过订单详情id来判断订单中的订单详情列表是否为空
         for (Orders order : ordersList) {
 //            // 查询并设置businessName

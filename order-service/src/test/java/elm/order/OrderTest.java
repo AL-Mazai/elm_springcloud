@@ -16,7 +16,7 @@ public class OrderTest {
 
     @Test
     public void getAllOrdersTest(){
-        List<Orders> ordersList = ordersMapper.selectAllOrderWithDetails();
+        List<Orders> ordersList = ordersMapper.selectAllOrderWithDetails(1);
         for (Orders o : ordersList) {
             System.out.println(o);
         }

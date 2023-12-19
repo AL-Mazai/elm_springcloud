@@ -29,8 +29,9 @@ public class OrdersController {
     private OrderDetailService orderDetailService;
 
     @GetMapping("/getAllOrders")
-    public ResponseResult getAllOrders(){
-        List<Orders> ordersList = ordersService.getAllOrder();
+    public ResponseResult getAllOrders(@RequestParam("userId") Integer userId){
+        System.out.println("userId：" + userId);
+        List<Orders> ordersList = ordersService.getAllOrder(userId);
         return ResponseResult.okResult(ordersList);
     }
 

@@ -14,7 +14,7 @@ import java.util.List;
 */
 public interface OrdersMapper extends BaseMapper<Orders> {
 
-    List<Orders> selectAllOrderWithDetails();
+    List<Orders> selectAllOrderWithDetails(Integer userId);
 }
 
 
