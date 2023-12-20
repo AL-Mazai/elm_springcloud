@@ -26,4 +26,6 @@ public interface BusinessService extends IService<Business> {
      * @return
      */
     List<Business> listById(Integer typeId);
+
+    List<Business> listByName(String businessName);
 }

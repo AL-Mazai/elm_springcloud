@@ -49,7 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/user/login").anonymous()
                 .antMatchers("/user/register").anonymous()
                 .antMatchers("/user/upload").anonymous()
-                // 除上面外的所有请求全部不需要认证即可访问
+                // 上面以外的所有请求需要认证才能访问
                 .anyRequest().authenticated();
 
         //关闭默认的注销功能

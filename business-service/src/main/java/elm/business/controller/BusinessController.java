@@ -31,6 +31,12 @@ public class BusinessController {
         return ResponseResult.okResult(businessList);
     }
 
+    @GetMapping("/getAllBusinessByName")
+    public ResponseResult getAllBusinessByName(@RequestParam("businessName") String businessName){
+        List<Business> businessList = businessService.listByName(businessName);
+        return ResponseResult.okResult(businessList);
+    }
+
     @GetMapping("/getBusinessInfo")
     public ResponseResult getBusinessInfo(@RequestParam("businessId") Integer businessId){
         Business business = businessService.getById(businessId);
