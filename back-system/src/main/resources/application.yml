@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: back-system
+  datasource:
+    url: jdbc:mysql://localhost:3306/elm?useSSL=false
+    username: root
+    password: zzwzzw
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+server:
+  port: 8089

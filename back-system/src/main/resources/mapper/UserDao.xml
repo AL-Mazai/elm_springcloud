@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="elm.back.mapper.UserMapper">
+
+    <resultMap type="elm.back.entity.User" id="UserMap">
+        <result property="userid" column="userId" jdbcType="INTEGER"/>
+        <result property="password" column="password" jdbcType="VARCHAR"/>
+        <result property="username" column="userName" jdbcType="VARCHAR"/>
+        <result property="usersex" column="userSex" jdbcType="INTEGER"/>
+        <result property="money" column="money" jdbcType="INTEGER"/>
+        <result property="userimg" column="userImg" jdbcType="VARCHAR"/>
+        <result property="phone" column="phone" jdbcType="VARCHAR"/>
+        <result property="deltag" column="delTag" jdbcType="INTEGER"/>
+    </resultMap>
+
+
+</mapper>
+
