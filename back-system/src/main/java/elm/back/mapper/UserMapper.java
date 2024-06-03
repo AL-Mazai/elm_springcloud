@@ -13,5 +13,8 @@ public interface UserMapper{
 
     @Select("select * from user where userId = #{userId}")
     User getUserInfoById(Integer userId);
+
+    @Select("SELECT * FROM user WHERE username = #{username}")
+    User selectByUserName(String username);
 }
 

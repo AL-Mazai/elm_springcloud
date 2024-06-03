@@ -2,6 +2,7 @@ package elm.back.service;
 
 import elm.back.domain.entity.User;
 import elm.back.domain.vo.UserInfoVo;
+import elm.common.domain.ResponseResult;
 
 /**
  * (User)表服务接口
@@ -13,4 +14,5 @@ public interface UserService {
 
     UserInfoVo getUserInfo(Integer userId);
 
+    UserInfoVo login(User user);
 }

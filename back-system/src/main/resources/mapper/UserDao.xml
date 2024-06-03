@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="elm.back.mapper.UserMapper">
 
-    <resultMap type="elm.back.entity.User" id="UserMap">
+    <resultMap type="elm.back.domain.entity.User" id="UserMap">
         <result property="userid" column="userId" jdbcType="INTEGER"/>
         <result property="password" column="password" jdbcType="VARCHAR"/>
         <result property="username" column="userName" jdbcType="VARCHAR"/>

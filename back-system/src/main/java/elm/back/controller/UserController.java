@@ -1,6 +1,7 @@
 package elm.back.controller;
 
 import elm.back.domain.entity.User;
+import elm.back.domain.vo.UserInfoVo;
 import elm.back.service.UserService;
 import elm.common.domain.ResponseResult;
 import org.springframework.web.bind.annotation.*;
@@ -31,6 +32,13 @@ public class UserController {
     @GetMapping("{id}")
     public ResponseResult<User> queryById(@PathVariable("id") Integer id) {
         return ResponseResult.okResult(userService.getUserInfo(id));
+    }
+
+    @PostMapping("/login")
+    public ResponseResult<User> login(@RequestBody User user){
+        UserInfoVo loginUser = userService.login(user);
+        System.out.println(loginUser);
+        return ResponseResult.okResult(loginUser);
     }
 }
 
