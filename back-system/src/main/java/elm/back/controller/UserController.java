@@ -1,11 +1,8 @@
 package elm.back.controller;
 
-import elm.back.entity.User;
+import elm.back.domain.entity.User;
 import elm.back.service.UserService;
 import elm.common.domain.ResponseResult;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -33,7 +30,7 @@ public class UserController {
      */
     @GetMapping("{id}")
     public ResponseResult<User> queryById(@PathVariable("id") Integer id) {
-        return ResponseResult.okResult(userService.getById(id));
+        return ResponseResult.okResult(userService.getUserInfo(id));
     }
 }
 

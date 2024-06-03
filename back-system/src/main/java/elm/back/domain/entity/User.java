@@ -1,4 +1,4 @@
-package elm.back.entity;
+package elm.back.domain.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
