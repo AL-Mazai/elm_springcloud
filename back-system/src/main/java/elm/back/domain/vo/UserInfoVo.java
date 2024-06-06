@@ -25,11 +25,6 @@ public class UserInfoVo {
     private String phone;
 
     /**
-     * 钱包
-     */
-    private Double money;
-
-    /**
      * 用户性别（1：男； 0：女）
      */
     private Integer usersex;

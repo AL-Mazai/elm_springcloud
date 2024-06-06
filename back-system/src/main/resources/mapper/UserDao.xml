@@ -12,6 +12,19 @@
         <result property="phone" column="phone" jdbcType="VARCHAR"/>
         <result property="deltag" column="delTag" jdbcType="INTEGER"/>
     </resultMap>
+    <select id="selectUserCount" resultType="java.lang.Integer">
+        select count(*)
+        from user
+        where userName like concat('%', #{userName}, '%')
+          and delTag = #{delTag}
+    </select>
+    <select id="selectUserByPage" resultType="elm.back.domain.entity.User">
+        select *
+        from user
+        where userName like concat('%', #{userName}, '%')
+          and delTag = #{delTag}
+            limit #{pageNum}, #{pageSize}
+    </select>
 
 
 </mapper>
