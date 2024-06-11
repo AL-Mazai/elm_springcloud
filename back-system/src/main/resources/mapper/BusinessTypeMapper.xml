@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="elm.back.mapper.BusinessTypeMapper">
+
+    <resultMap type="elm.back.domain.entity.BusinessType" id="BusinessTypeMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="typeName" column="type_name" jdbcType="VARCHAR"/>
+        <result property="typeImg" column="type_img" jdbcType="VARCHAR"/>
+        <result property="deltag" column="delTag" jdbcType="INTEGER"/>
+    </resultMap>
+
+</mapper>
+

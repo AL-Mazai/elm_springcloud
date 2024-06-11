@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="elm.back.mapper.BusinessTypeMapper">
+
+    <resultMap type="elm.back.domain.entity.Business" id="BusinessMap">
+        <result property="businessId" column="business_id" jdbcType="INTEGER"/>
+        <result property="businessName" column="business_name" jdbcType="VARCHAR"/>
+        <result property="businessAddress" column="business_address" jdbcType="VARCHAR"/>
+        <result property="businessIntroduction" column="business_introduction" jdbcType="VARCHAR"/>
+        <result property="businessImg" column="business_img" jdbcType="VARCHAR"/>
+        <result property="businessTypeId" column="business_type_id" jdbcType="INTEGER"/>
+        <result property="starPrice" column="star_price" jdbcType="NUMERIC"/>
+        <result property="deliveryPrice" column="delivery_price" jdbcType="NUMERIC"/>
+        <result property="remarks" column="remarks" jdbcType="VARCHAR"/>
+        <result property="orderNum" column="order_num" jdbcType="INTEGER"/>
+        <result property="stars" column="stars" jdbcType="NUMERIC"/>
+    </resultMap>
+
+
+</mapper>
+
