@@ -38,4 +38,10 @@ public class BusinessTypeServiceImpl implements BusinessTypeService {
         List<BusinessVo> businessVoList = BeanCopyUtils.copyBeanList(businessListByType, BusinessVo.class);
         return businessVoList;
     }
+
+    @Override
+    public int updateBusinessInfo(Business business) {
+        int isSuccess = businessTypeMapper.updateBusinessInfo(business);
+        return isSuccess;
+    }
 }

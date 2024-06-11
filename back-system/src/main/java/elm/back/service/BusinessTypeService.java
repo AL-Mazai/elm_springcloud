@@ -20,4 +20,5 @@ public interface BusinessTypeService {
 
     List<BusinessVo> getBusinessListByType(Integer typeId);
 
+    int updateBusinessInfo(Business business);
 }

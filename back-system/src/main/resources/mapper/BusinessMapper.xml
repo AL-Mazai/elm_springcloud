@@ -16,6 +16,16 @@
         <result property="stars" column="stars" jdbcType="NUMERIC"/>
     </resultMap>
 
+    <update id="updateBusinessInfo" parameterType="elm.back.domain.entity.Business">
+        UPDATE business
+        <set>
+            <if test="businessName != null">business_name = #{businessName},</if>
+            <if test="businessAddress != null">business_address = #{businessAddress},</if>
+            <if test="businessImg != null">business_img = #{businessImg},</if>
+        </set>
+        WHERE business_id = #{businessId}
+    </update>
+
 
 </mapper>
 

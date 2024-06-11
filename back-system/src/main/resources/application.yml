@@ -9,3 +9,8 @@ spring:
 
 server:
   port: 8089
+
+oss:
+  accessKey: aBOws0OzW2zNgJq1Yp0h4KG8tc3KFMFX5Ech7Ibs
+  secretKey: 20wu4AHg1VVNjPcyVP3-HB-VIgTQSVjScGyjYsZe
+  bucket: elm-photo
