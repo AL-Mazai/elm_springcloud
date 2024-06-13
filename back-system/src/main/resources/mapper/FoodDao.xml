@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="elm.back.mapper.FoodDao">
+
+    <resultMap type="elm.back.domain.entity.Food" id="FoodMap">
+        <result property="foodid" column="foodId" jdbcType="INTEGER"/>
+        <result property="foodname" column="foodName" jdbcType="VARCHAR"/>
+        <result property="foodexplain" column="foodExplain" jdbcType="VARCHAR"/>
+        <result property="foodimg" column="foodImg" jdbcType="VARCHAR"/>
+        <result property="foodprice" column="foodPrice" jdbcType="NUMERIC"/>
+        <result property="businessid" column="businessId" jdbcType="INTEGER"/>
+        <result property="remarks" column="remarks" jdbcType="VARCHAR"/>
+        <result property="orderFoodNum" column="order_food_num" jdbcType="INTEGER"/>
+        <result property="deltag" column="delTag" jdbcType="INTEGER"/>
+
+    </resultMap>
+
+
+</mapper>
+

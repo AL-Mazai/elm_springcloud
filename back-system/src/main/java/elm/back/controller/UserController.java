@@ -43,6 +43,9 @@ public class UserController {
     @PostMapping("/login")
     public ResponseResult<User> login(@RequestBody User user){
         UserInfoVo loginUser = userService.login(user);
+        if (loginUser == null) {
+            return ResponseResult.errorResult(AppHttpCodeEnum.LOGIN_ERROR);
+        }
         System.out.println(loginUser);
         return ResponseResult.okResult(loginUser);
     }
